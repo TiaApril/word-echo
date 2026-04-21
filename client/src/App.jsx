@@ -1,11 +1,17 @@
 import { useState } from 'react'
 import './App.css'
 import sightWords from './data/sightWords'
+import Practice from './Practice'
 
 function App() {
+  const [page, setPage] = useState('home')
   const [selectedLevel, setSelectedLevel] = useState(1)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [started, setStarted] = useState(false)
+
+  if (page === 'practice') {
+    return <Practice onBack={() => setPage('home')} />
+  }
 
   const words = sightWords[selectedLevel]
   const currentWord = words[currentIndex]
@@ -36,16 +42,15 @@ function App() {
 
   return (
     <div className="app">
-      {/* Navbar */}
       <nav className="navbar">
         <span className="nav-logo">Word Echo</span>
         <ul className="nav-links">
           <li><a href="#">Home</a></li>
+          <li><a href="#" onClick={(e) => { e.preventDefault(); setPage('practice') }}>Practice</a></li>
           <li><a href="#">About Us</a></li>
         </ul>
       </nav>
 
-      {/* Main Content */}
       <main className="main">
         <h1 className="title">Word Echo</h1>
         <p className="status">
@@ -55,14 +60,12 @@ function App() {
         </p>
 
         <div className="game-area">
-          {/* Word Card */}
           <div className="word-card">
             <span className="word-text">
               {started ? currentWord : 'Say The Word'}
             </span>
           </div>
 
-          {/* Level Buttons */}
           <div className="levels">
             {[1, 2, 3].map((level) => (
               <button

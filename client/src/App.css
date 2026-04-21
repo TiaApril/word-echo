@@ -159,6 +159,83 @@
   cursor: not-allowed;
 }
 
+/* Word Card Feedback States */
+.word-card--correct {
+  background: #d4f5e2;
+  box-shadow: 0 4px 16px rgba(34, 197, 94, 0.2);
+}
+
+.word-card--wrong {
+  background: #fde8e8;
+  box-shadow: 0 4px 16px rgba(239, 68, 68, 0.2);
+}
+
+/* Practice Buttons */
+.practice-btns {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.practice-btn {
+  padding: 14px 36px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.practice-btn--listen {
+  background: #111;
+  color: #fff;
+}
+
+.practice-btn--listen:hover {
+  background: #333;
+}
+
+.practice-btn--say {
+  background: #1a6aff;
+  color: #fff;
+}
+
+.practice-btn--say:hover {
+  background: #0052d9;
+}
+
+.practice-btn--say.listening {
+  background: #e53e3e;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.practice-btn:active {
+  transform: scale(0.97);
+}
+
+/* Feedback Text */
+.practice-feedback {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+.practice-feedback--correct {
+  color: #16a34a;
+}
+
+.practice-feedback--wrong {
+  color: #dc2626;
+}
+
 /* Start Button */
 .start-btn {
   padding: 14px 48px;
